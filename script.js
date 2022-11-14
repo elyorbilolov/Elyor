@@ -144,11 +144,31 @@ console.log(isAge && isClose && !isChecked);
 console.log(2 + 2 * 2 !== 6);
  */
 
-
-
-
 //#11. Github bilan ishlash
 
+//#12. Amaliyot, uyga vazifa
+
+/* 
+const numberOfSeries = +prompt("Neshta serial ko'rdingiz?", "");
+console.log(numberOfSeries);
+
+const seriesDB = {
+    count: numberOfSeries,
+    series: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
 
 
 
+const a = prompt('Oxirgi ko\'rgan serialingiz'),
+    b = prompt('Nechi baxo berasiz?'),
+    c = prompt('Oxirgi ko\'rgan serialingiz'),
+    d = prompt('Nechi baxo berasiz?');
+
+seriesDB.series[a] = b;
+seriesDB.series[c] = d;
+
+console.log(seriesDB);
+ */
