@@ -274,3 +274,26 @@ if (seriesDB.count < 5) {
 }
  */
 
+
+
+
+//#16. Funksiya, ES6
+
+//Function declaration
+
+function calc(a, b) {
+    return a + b;
+}
+const sumOfAandB = calc(10, 5);
+console.log(sumOfAandB);
+
+//function expression
+const logger = function () {
+    console.log('Hello world');
+};
+logger();
+
+//Arrow function
+const calcu = (a, b) => a + b;
+console.log(calcu(10, 1));
+
