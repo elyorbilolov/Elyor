@@ -148,7 +148,7 @@ console.log(2 + 2 * 2 !== 6);
 
 //#12. Amaliyot, uyga vazifa
 
-/* 
+/*
 const numberOfSeries = +prompt("Neshta serial ko'rdingiz?", "");
 console.log(numberOfSeries);
 
@@ -172,3 +172,47 @@ seriesDB.series[c] = d;
 
 console.log(seriesDB);
  */
+
+
+
+
+//#13. Shartli operatorlar
+/*
+const age = +prompt("How old are you?", "");
+
+if (age > 25) {
+    console.log('Horror films');
+} else if (age >= 18 && age <= 25) {
+    console.log('Boyevik films');
+} else {
+    console.log('Carton');
+}
+
+// age > 25 ? console.log('Horror films') : console.log('Carton');
+
+const color = 'red';
+
+switch (color) {
+    case 'red':
+        console.log('Stop');
+        break;
+    case 'green':
+        console.log('Goo');
+        break;
+    case 'yellow':
+        console.log('Slowly');
+        break;
+    default:
+        console.log('Traffic jam');
+        break;
+}
+ */
+
+
+
+
+//#14. Tsikl
+
+
+
+
