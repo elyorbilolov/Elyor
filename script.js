@@ -150,7 +150,6 @@ console.log(2 + 2 * 2 !== 6);
 
 /*
 const numberOfSeries = +prompt("Neshta serial ko'rdingiz?", "");
-console.log(numberOfSeries);
 
 const seriesDB = {
     count: numberOfSeries,
@@ -212,7 +211,66 @@ switch (color) {
 
 
 //#14. Tsikl
+/*
+// let starNum = 1;
+
+// while (starNum <= 10) {
+//     console.log(starNum);
+//     starNum++;
+// }
+
+// do {
+//     console.log(starNum);
+//     starNum++;
+// } while (starNum <= 10);
+
+for (let i = 1; i <= 10; i++) {
+    if (i === 8) {
+        // break; //toxtatadi
+        continue; // formulada berilgan soni korsatmidi
+    }
+    console.log(i);
+}
+ */
 
 
 
+//#15. Amaliyot, uyga vazifa. Tskil
+/* 
+const numberOfSeries = +prompt("Neshta serial ko'rdingiz?", "");
+
+const seriesDB = {
+    count: numberOfSeries,
+    series: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
+
+for (let i = 0; i < 2; i++) {
+    const a = prompt('Oxirgi ko\'rgan serialingiz?'),
+        b = prompt('Nechi baxo berasiz?');
+
+    if (a != null && b != null && a != '' && b != '') {
+        seriesDB.series[a] = b;
+        console.log('done');
+    } else {
+        console.log('error');
+        i--;
+    }
+}
+
+
+console.log(seriesDB);
+
+
+
+if (seriesDB.count < 5) {
+    console.log('Kam serial ko\'ribsiz');
+} else if (seriesDB.count >= 5 && seriesDB.count <= 10) {
+    console.log('Siz classik tomoshabin ekansiz');
+} else {
+    console.log('Siz serialchi zvezda ekansiz');
+}
+ */
 
