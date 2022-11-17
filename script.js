@@ -156,7 +156,7 @@ const seriesDB = {
     series: {},
     actors: {},
     genres: [],
-    privat: false
+    private: false
 };
 
 
@@ -236,7 +236,7 @@ for (let i = 1; i <= 10; i++) {
 
 
 //#15. Amaliyot, uyga vazifa. Tskil
-/* 
+/*
 const numberOfSeries = +prompt("Neshta serial ko'rdingiz?", "");
 
 const seriesDB = {
@@ -244,7 +244,7 @@ const seriesDB = {
     series: {},
     actors: {},
     genres: [],
-    privat: false
+    private: false
 };
 
 for (let i = 0; i < 2; i++) {
@@ -260,11 +260,6 @@ for (let i = 0; i < 2; i++) {
     }
 }
 
-
-console.log(seriesDB);
-
-
-
 if (seriesDB.count < 5) {
     console.log('Kam serial ko\'ribsiz');
 } else if (seriesDB.count >= 5 && seriesDB.count <= 10) {
@@ -272,13 +267,15 @@ if (seriesDB.count < 5) {
 } else {
     console.log('Siz serialchi zvezda ekansiz');
 }
+
+console.log(seriesDB);
  */
 
 
 
 
 //#16. Funksiya, ES6
-
+/*
 //Function declaration
 
 function calc(a, b) {
@@ -287,13 +284,146 @@ function calc(a, b) {
 const sumOfAandB = calc(10, 5);
 console.log(sumOfAandB);
 
+
 //function expression
+
 const logger = function () {
     console.log('Hello world');
 };
 logger();
 
+
 //Arrow function
+
 const calcu = (a, b) => a + b;
 console.log(calcu(10, 1));
+ */
+
+
+
+//#17. Metod va Xususiyatlar
+/*
+const user = 'Elyor';
+const arr = [1, 2, 3, 4];
+console.log(user[2]);
+console.log(user.toUpperCase());
+console.log(user.toLowerCase());
+console.log(user);
+
+const greeting = 'Hello world';
+console.log(greeting.indexOf('d'));
+console.log(greeting.slice(6));
+console.log(greeting.substring(2, 8));
+
+const num = 8.3;
+console.log(Math.round(num));
+
+const borderWidth = '13.8px';
+console.log(parseInt(borderWidth));
+console.log(parseFloat(borderWidth));
+ */
+
+
+
+//#18. Amaliyot, uyga vazifa. Funksiya
+/*
+let numberOfSeries;
+
+function starApp() {
+    numberOfSeries = +prompt("Neshta serial ko'rdingiz?", "");
+
+
+    while (numberOfSeries == '' || numberOfSeries == null || isNaN(numberOfSeries)) {
+        numberOfSeries = +prompt("Neshta serial ko'rdingiz?", "");
+    }
+}
+
+starApp();
+
+const seriesDB = {
+    count: numberOfSeries,
+    series: {},
+    actors: {},
+    genres: [],
+    private: true
+};
+
+function rememberMySeries() {
+    for (let i = 0; i < 2; i++) {
+        const a = prompt('Oxirgi ko\'rgan serialingiz?'),
+            b = prompt('Nechi baxo berasiz?');
+
+        if (a != null && b != null && a != '' && b != '') {
+            seriesDB.series[a] = b;
+            console.log('done');
+        } else {
+            console.log('error');
+            i--;
+        }
+    }
+} 2
+
+rememberMySeries();
+
+
+function detectLevelSeries() {
+    if (seriesDB.count < 5) {
+        console.log('Kam serial ko\'ribsiz');
+    } else if (seriesDB.count >= 5 && seriesDB.count < 10) {
+        console.log('Siz classik tomoshabin ekansiz');
+    } else if (seriesDB.count >= 10) {
+        console.log('Siz serialchi zvezda ekansiz');
+    } else {
+        console.log('Error');
+    }
+}
+
+detectLevelSeries();
+
+function showDb(hidden) {
+    if (!hidden) {
+        console.log(seriesDB);
+    }
+}
+showDb(seriesDB.private);
+
+function writeGenres() {
+    for (let i = 0; i <= 2; i++) {
+        const genre = prompt(`Yaxshi ko‘rgan janringiz ${i + 1}`);
+        seriesDB.genres[i] = genre;
+    }
+}
+
+writeGenres();
+ */
+
+
+
+//#19. Callback
+/* 
+function first(cb) {
+    setTimeout(() => {
+        console.log(1);
+        cb();
+    }, 1000);
+}
+
+function second() {
+    console.log(2);
+}
+first(second);
+
+
+function edu(subject, Callback) {
+    console.log(`I wanna teach ${subject}`);
+    Callback();
+}
+
+function done() {
+    console.log('That is great');
+}
+
+edu('JavaScript', done);
+ */
+
 
