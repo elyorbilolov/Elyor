@@ -345,7 +345,7 @@ const seriesDB = {
     series: {},
     actors: {},
     genres: [],
-    private: true
+    private: false
 };
 
 function rememberMySeries() {
@@ -430,7 +430,7 @@ edu('JavaScript', done);
 
 //#20. Object. Destruptizatsiya
 
-/*
+/* 
 const theif = {
     jacket: 'black',
     height: 1.7,
@@ -448,9 +448,9 @@ const { hair, style } = theif.colors;
 
 console.log(hair);
 console.log(style);
- */
 
-/*
+
+
 console.log(Object.keys(theif).length); // massivga olib beradi
 
 for (let key in theif) {
@@ -462,11 +462,130 @@ for (let key in theif) {
         console.log(`Property ${key} has value ${theif[key]}`);
     }
 
-} */
+}
+ */
+
 
 
 //#21. Massivlar
 
+/* 
+const arr = [4, 22, 1, 31];
+
+// arr.sort((a, b) => a - b);
+// console.log(arr);
+
+// function compareFn(a, b) {
+//     return a - b;
+// }
+
+// arr[99] = 0;
+
+// arr.forEach(function (item, index, array) {
+//     console.log(`${index}: ${item} into arr ${array}`);
+// });
+
+// arr.pop();
+// arr.push(7);
+
+// arr.shift();
+// arr.unshift(0);
+
+
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
+// }
+
+
+// for (let value of arr) {
+//     console.log(value);
+// }
+
+const movies = prompt(`What's your favourite movies`, '');
+const userMovies = movies.split(", ");
+userMovies.sort(); // sartirovka
+console.log(userMovies.join("- "));
+ */
 
 
 
+//#22. Clonlash, ES6
+/* 
+let x = 10;
+let y = x;
+y = y + 5;
+console.log(x);
+console.log(y);
+
+
+let isMarried = false;
+let isArray = isMarried;
+isArray = true;
+console.log(isMarried);
+console.log(isArray);
+
+
+const number = {
+    x: 10,
+    y: 5,
+};
+const newNumber = number; // havola
+newNumber.x = 15;
+console.log(number);
+console.log(newNumber);
+ */
+
+/* 
+function nusxaObj(obj) {
+    let objNusxa = {};
+
+    for (let key in obj) {
+        objNusxa[key] = obj[key];
+    }
+    return objNusxa;
+}
+
+const numbers = {
+    x: 10,
+    y: 5,
+    z: {
+        a: 1,
+        b: 2,
+    },
+};
+
+const newNumbers = nusxaObj(numbers);
+
+newNumbers.x = 15;
+newNumbers.z.a = 10;
+
+console.log(newNumbers);
+console.log(numbers);
+ */
+
+/* 
+const numbers = {
+    x: 10,
+    y: 5,
+};
+
+const addNumber = {
+    z: 15,
+};
+
+const allNumbers = Object.assign(numbers, addNumber);
+console.log(allNumbers);
+ */
+
+
+const arr = [1, 2, 3];
+const numbers = arr.slice();
+numbers[1] = 'Samar';
+console.log(arr);
+console.log(numbers);
+
+const liverpool = ['Salah', 'Mane'];
+const manCity = ['Mahrez'];
+
+const mixPlayer = [...liverpool, ...manCity];
+console.log(mixPlayer);
