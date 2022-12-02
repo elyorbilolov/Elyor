@@ -430,7 +430,7 @@ edu('JavaScript', done);
 
 //#20. Object. Destruptizatsiya
 
-/* 
+/*
 const theif = {
     jacket: 'black',
     height: 1.7,
@@ -469,8 +469,8 @@ for (let key in theif) {
 
 //#21. Massivlar
 
-/* 
-const arr = [4, 22, 1, 31];
+
+// const arr = [4, 22, 1, 31];
 
 // arr.sort((a, b) => a - b);
 // console.log(arr);
@@ -501,16 +501,16 @@ const arr = [4, 22, 1, 31];
 //     console.log(value);
 // }
 
-const movies = prompt(`What's your favourite movies`, '');
-const userMovies = movies.split(", ");
-userMovies.sort(); // sartirovka
-console.log(userMovies.join("- "));
- */
+// const movies = prompt(`What's your favourite movies`, '');
+// const userMovies = movies.split(", ");
+// userMovies.sort(); // sartirovka
+// console.log(userMovies.join("- "));
+
 
 
 
 //#22. Clonlash, ES6
-/* 
+/*
 let x = 10;
 let y = x;
 y = y + 5;
@@ -533,9 +533,9 @@ const newNumber = number; // havola
 newNumber.x = 15;
 console.log(number);
 console.log(newNumber);
- */
 
-/* 
+
+
 function nusxaObj(obj) {
     let objNusxa = {};
 
@@ -545,7 +545,7 @@ function nusxaObj(obj) {
     return objNusxa;
 }
 
-const numbers = {
+const numbers1 = {
     x: 10,
     y: 5,
     z: {
@@ -554,38 +554,305 @@ const numbers = {
     },
 };
 
-const newNumbers = nusxaObj(numbers);
+const newNumbers1 = nusxaObj(numbers1);
 
-newNumbers.x = 15;
-newNumbers.z.a = 10;
+newNumbers1.x = 15;
+newNumbers1.z.a = 10;
 
-console.log(newNumbers);
-console.log(numbers);
- */
+console.log(newNumbers1);
+console.log(numbers1);
 
-/* 
-const numbers = {
+
+
+const numbers2 = {
     x: 10,
     y: 5,
 };
 
-const addNumber = {
+const addNumber2 = {
     z: 15,
 };
 
-const allNumbers = Object.assign(numbers, addNumber);
-console.log(allNumbers);
- */
+const allNumbers2 = Object.assign(numbers2, addNumber2);
+console.log(allNumbers2);
+
 
 
 const arr = [1, 2, 3];
-const numbers = arr.slice();
-numbers[1] = 'Samar';
+const numbers3 = arr.slice();
+numbers3[1] = 'Samar';
 console.log(arr);
-console.log(numbers);
+console.log(numbers3);
 
 const liverpool = ['Salah', 'Mane'];
 const manCity = ['Mahrez'];
 
 const mixPlayer = [...liverpool, ...manCity];
 console.log(mixPlayer);
+ */
+
+
+
+//#23. Spread operator
+
+/*
+const calc = [1, 2, 3];
+
+function logger(x, y, z) {
+    console.log(x + y + z);
+}
+
+logger(...calc);
+
+const arr = ['x', 'y'];
+const newArr = [...arr];
+console.log(newArr);
+
+const numbers = {
+    x: 10,
+    y: 5
+};
+
+const newNumbers = { ...numbers };
+console.log(newNumbers);
+console.log(numbers);
+ */
+
+
+
+
+
+
+//#24. OOP asoslari
+
+/*
+let car = {
+    mator: '1.25',
+    color: 'red',
+    isAirbag: true,
+    isSpeed: function () {
+        console.log(320);
+    },
+};
+
+let gm = {
+    isAirbag: false,
+};
+
+// gm.__proto__ = car;
+// console.log(gm.color);
+// gm.isSpeed();
+
+
+//Object.setPrototypeOf(gm, car);
+
+let bmw = Object.create(car);
+
+console.log(bmw);
+ */
+
+
+//#25. Amaliyot, uyga vazifa. OOP
+
+
+/*
+const seriesDB = {
+    count: 0,
+    series: {},
+    actors: {},
+    genres: [],
+    private: false,
+    start: function () {
+        seriesDB.count = +prompt("Neshta serial ko'rdingiz?", "");
+
+
+        while (seriesDB.count == '' || seriesDB.count == null || isNaN(seriesDB.count)) {
+            seriesDB.count = +prompt("Neshta serial ko'rdingiz?", "");
+        }
+    },
+
+    rememberMySeries: function () {
+        for (let i = 0; i < 2; i++) {
+            const a = prompt('Oxirgi ko\'rgan serialingiz?'),
+                b = prompt('Nechi baxo berasiz?');
+
+            if (a != null && b != null && a != '' && b != '') {
+                seriesDB.series[a] = b;
+                console.log('done');
+            } else {
+                console.log('error');
+                i--;
+            }
+        }
+    },
+
+    detectLevelSeries: function () {
+        if (seriesDB.count < 5) {
+            console.log('Kam serial ko\'ribsiz');
+        } else if (seriesDB.count >= 5 && seriesDB.count < 10) {
+            console.log('Siz classik tomoshabin ekansiz');
+        } else if (seriesDB.count >= 10) {
+            console.log('Siz serialchi zvezda ekansiz');
+        } else {
+            console.log('Error');
+        }
+    },
+
+    showDb: function () {
+        if (!seriesDB.private) {
+            console.log(seriesDB);
+        }
+    },
+
+    visibleDB: function () {
+        if (seriesDB.private) {
+            seriesDB.private = false;
+        } else {
+            seriesDB.private = true;
+        }
+    },
+
+    writeGenres: function () {
+        //     for (let i = 0; i < 3; i++) {
+        //         let genre = prompt(`Yaxshi ko'rgan janiringiz ${i + 1}`);
+        //         if (genre === '' || genre === null) {
+        //             console.log(`Siz notog'ri ma'lumot kiritdingiz`);
+        //             i--;
+        //         } else {
+        //             seriesDB.genres[i] = genre;
+        //         }
+        //     }
+        // }
+
+        let genres = prompt(`Yaxshi ko'rgan janiringizni vergil yordamida yozing`).toLowerCase();
+        console.log(genres);
+        if (genres === '' || genres === null) {
+            console.log(`Siz notog'ri ma'lumot kiritdingiz`);
+        } else {
+            seriesDB.genres = genres.split(', ');
+            seriesDB.genres.sort();
+        }
+
+        seriesDB.genres.forEach((item, index) => {
+            console.log(`Yaxshi ko'rgan janiringiz ${index + 1} - nomi ${item}`);
+        });
+    }
+};
+ */
+
+
+//#26. Dynamic typing
+/*
+// to string
+// 1-)
+console.log(typeof String(4));
+// 2-)
+console.log(typeof ('Elyor' + 25));
+
+const youtubeChannel = 10;
+console.log(`youtube.com/channel/` + youtubeChannel);
+
+
+
+// to number
+// 1-)
+console.log(typeof Number(4));
+// 2-)
+console.log(typeof + '5');
+// 3-)
+console.log(typeof parseInt('15'));
+
+
+
+// to boolean
+
+// '', null, undefined, NaN = xar doim false
+
+let age = 0;
+if (age) {
+    console.log('g');
+}
+
+let age1 = 18;
+if (age1) {
+    console.log('g');
+}
+
+console.log(typeof Boolean('4'));
+console.log(typeof !!'4');
+ */
+
+
+// to boolean
+
+// '', null, undefined, NaN = xar doim false
+
+
+
+//#27. DOM bilan ishlash
+/* 
+'use strict'
+
+const box = document.querySelector('#box')
+const buttons = document.querySelectorAll('button')
+const circles = document.querySelectorAll('.circle')
+const circle = document.querySelector('.circle')
+const hearts = document.querySelectorAll('.heart')
+const circleWrapper = document.querySelector('.circle__wrapper')
+
+box.style.cssText = 'background-color: red; width: 100px; height: 100px'
+
+buttons[0].style.width = '100px'
+circles[1].style.backgroundColor = 'yellow'
+circle.style.backgroundColor = 'yellow'
+
+// for (let i = 0; i < hearts.length; i++) {
+//   hearts[i].style.backgroundColor = 'green'
+// }
+
+// hearts.forEach((item) => {
+//   item.style.backgroundColor = 'gray'
+// })
+
+const btn = document.createElement('button')
+// const text = document.createTextNode('I am text')
+
+document.body.append(btn)
+
+const myCircle = document.createElement('div')
+
+myCircle.classList.add('circle')
+
+// circleWrapper.append(myCircle)
+// circleWrapper.before(myCircle)
+// circleWrapper.after(myCircle)
+// circles[0].after(myCircle)
+// circles[1].remove()
+// circles[1].replaceWith(myCircle)
+// circleWrapper.append(myCircle)
+// myCircle.innerHTML = '<pre>E</pre>'
+// myCircle.textContent = 'E'
+// circleWrapper.insertAdjacentHTML('beforeend', '<pre>E</pre>')
+ */
+
+//Old way
+const box = document.getElementById('Box');
+console.log(box);
+
+const buttons = document.getElementsByTagName('button');
+console.log(buttons);
+
+const circle = document.getElementsByClassName('circle');
+console.log(circle);
+
+//New way
+
+const wrapper = document.querySelector('.wrapper');
+console.log(wrapper);
+
+const hearts = wrapper.querySelectorAll('.heart');
+console.log(hearts);
+
+hearts.forEach((item) => {
+    console.log(item);
+});
