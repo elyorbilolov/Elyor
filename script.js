@@ -326,6 +326,7 @@ console.log(parseFloat(borderWidth));
 
 
 //#18. Amaliyot, uyga vazifa. Funksiya
+
 /*
 let numberOfSeries;
 
@@ -790,51 +791,8 @@ console.log(typeof !!'4');
 
 
 //#27. DOM bilan ishlash
-/* 
-'use strict'
 
-const box = document.querySelector('#box')
-const buttons = document.querySelectorAll('button')
-const circles = document.querySelectorAll('.circle')
-const circle = document.querySelector('.circle')
-const hearts = document.querySelectorAll('.heart')
-const circleWrapper = document.querySelector('.circle__wrapper')
-
-box.style.cssText = 'background-color: red; width: 100px; height: 100px'
-
-buttons[0].style.width = '100px'
-circles[1].style.backgroundColor = 'yellow'
-circle.style.backgroundColor = 'yellow'
-
-// for (let i = 0; i < hearts.length; i++) {
-//   hearts[i].style.backgroundColor = 'green'
-// }
-
-// hearts.forEach((item) => {
-//   item.style.backgroundColor = 'gray'
-// })
-
-const btn = document.createElement('button')
-// const text = document.createTextNode('I am text')
-
-document.body.append(btn)
-
-const myCircle = document.createElement('div')
-
-myCircle.classList.add('circle')
-
-// circleWrapper.append(myCircle)
-// circleWrapper.before(myCircle)
-// circleWrapper.after(myCircle)
-// circles[0].after(myCircle)
-// circles[1].remove()
-// circles[1].replaceWith(myCircle)
-// circleWrapper.append(myCircle)
-// myCircle.innerHTML = '<pre>E</pre>'
-// myCircle.textContent = 'E'
-// circleWrapper.insertAdjacentHTML('beforeend', '<pre>E</pre>')
- */
-
+/*
 //Old way
 const box = document.getElementById('Box');
 console.log(box);
@@ -856,3 +814,94 @@ console.log(hearts);
 hearts.forEach((item) => {
     console.log(item);
 });
+ */
+
+
+
+//#28. Metodlar bilan ishlash
+/*
+const box = document.querySelector('#box');
+const buttons = document.querySelectorAll('button');
+const circles = document.querySelectorAll('.circle');
+const circle = document.querySelector('.circle');
+const hearts = document.querySelectorAll('.heart');
+const circleWrapper = document.querySelector('.circle__wrapper');
+
+box.style.backgroundColor = 'red';
+box.style.cssText = 'background-color: red; width: 100px; height: 100px';
+
+buttons[0].style.width = '100px';
+circles[1].style.backgroundColor = 'yellow';
+circle.style.backgroundColor = 'yellow';
+
+// hearts.forEach((item) => {
+//     item.style.backgroundColor = 'gray';
+// });
+
+const btn = document.createElement('button');
+// const text = document.createTextNode('I am text');
+
+document.body.append(btn);
+
+const myCircle = document.createElement('div');
+
+myCircle.classList.add('circle');
+
+//circleWrapper.append(myCircle);
+// circleWrapper.before(myCircle);
+// circleWrapper.after(myCircle);
+// circles[0].before(myCircle);
+// circles[1].remove();
+// circles[1].replaceWith(myCircle);
+
+// circleWrapper.append(myCircle);
+// myCircle.innerHTML = '<pre>E</pre>';
+// myCircle.textContent = 'E';
+// circleWrapper.insertAdjacentHTML('beforeend', '<pre>E</pre>');
+ */
+
+
+
+// #29. Amaliyot, uyga vazifa. DOM
+
+/*
+const adv = document.querySelectorAll('.promo__adv img'),
+    wrapper = document.querySelector('.promo__bg'),
+    genre = wrapper.querySelector('.promo__genre'),
+    seriesList = document.querySelector('.promo__interactive-list');
+
+const seriesDB = {
+    series: [
+        'Omar',
+        'The Final Legacy',
+        'Ertugrul',
+        'Magnificent Century',
+        'The Great Seljuks: Guardians...',
+    ],
+};
+
+adv.forEach((item) => {
+    item.remove();
+});
+
+genre.textContent = 'comedy';
+
+wrapper.style.backgroundImage = 'url("img/1.jpg")';
+
+seriesList.innerHTML = '';
+
+seriesDB.series.forEach((item, idx) => {
+    seriesList.innerHTML += `
+    <li class="promo__interactive-item">${idx + 1} ${item}
+      <div class="delete"></div>
+    </li>
+  `;
+});
+ */
+
+
+
+
+// #30. Xodisalar bilan ishlash
+
+
