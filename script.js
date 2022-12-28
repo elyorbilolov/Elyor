@@ -904,4 +904,79 @@ seriesDB.series.forEach((item, idx) => {
 
 // #30. Xodisalar bilan ishlash
 
+// const btn = document.querySelector('#btn');
+// const overlay = document.querySelector('.overlay');
 
+// btn.addEventListener('click', () => {
+//     alert('click');
+// });
+
+// btn.addEventListener('click', () => {
+//     alert('click1');
+// });
+
+// btn.addEventListener('mouseenter', (event) => {
+//     console.log(event.target);
+//     event.target.remove();
+//     alert('Hover');
+// });
+
+
+// let i = 0;
+// const addElement = (evnt) => {
+//     i++;
+//     if (i === 3) {
+//         btn.removeEventListener('click', addElement);
+//     }
+//     console.log(i);
+// };
+
+// btn.addEventListener('click', addElement);
+
+
+// const cb = (e) => {
+//     console.log(e.currentTarget);
+// };
+
+// btn.addEventListener('click', cb);
+// overlay.addEventListener('click', cb);
+
+
+
+// const link = document.querySelector('a');
+
+// link.addEventListener('click', (event) => {
+//     event.preventDefault();
+//     alert('Link');
+// });
+
+// const btns = document.querySelectorAll('button');
+
+// const logger = () => {
+//     console.log(1);
+// };
+
+// btns.forEach((item) => {
+//     item.addEventListener('click', logger);
+// });
+
+
+
+// #31. Navigatsiya DOM bo'yicha
+
+// console.log(document.head);
+// console.log(document.body);
+// console.log(document.body.childNodes);
+// console.log(document.body.firstElementChild);
+// console.log(document.body.lastElementChild);
+
+//console.log(document.querySelector('#btn').parentElement);
+
+// console.log(document.querySelector('[data-current="b"]').nextElementSibling);
+
+// for (let node of document.body.childNodes) {
+//     if (node.nodeName == '#text') {
+//         continue;
+//     }
+//     console.log(node);
+// }
