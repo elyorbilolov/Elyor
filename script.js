@@ -980,3 +980,19 @@ seriesDB.series.forEach((item, idx) => {
 //     }
 //     console.log(node);
 // }
+
+
+const btn = document.querySelector('#btn');
+const overlay = document.querySelector('.overlay');
+
+const cb = (e) => {
+    console.log(e.currentTarget);
+};
+
+btn.addEventListener('click', cb);
+overlay.addEventListener('click', cb);
+
+btn.addEventListener('mouseenter', (event) => {
+    event.target.remove();
+});
+
