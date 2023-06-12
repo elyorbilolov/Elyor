@@ -15,9 +15,6 @@ console.log(person);
 console.log(clientName);
 var clientName = 'Samar'; */
 
-
-
-
 //6#. Qat'iy rejim
 
 /* "use strict";
@@ -27,13 +24,10 @@ const clientName = 'Samar';
 
 console.log(number); */
 
-
-
-
 //7#. Ma'lumot turlari
-/*
-1) primitive      2) Object
 
+// 1) primitive      2) Object
+/* 
 Boolean       /   Array
 null         /    Object
 undefined   /     function
@@ -41,16 +35,16 @@ number     /      RegEx
 String    /       Date
 Symbol
  */
-/*
+/* 
 "use strict";
 
 //Number
-let number = 5.6;  // Data Type = Number
+let number = 5.6; // Data Type = Number
 console.log(-8 / 0); // Infinity
-console.log('Samar' * 8); // Nan
+console.log("Samar" * 8); // Nan
 
 // String
-const clientName = 'Samar';
+const clientName = "Samar";
 
 //Boolean
 const isMarried = false;
@@ -70,19 +64,15 @@ console.log(und);
 const thief = {
     //key: value
     age: 30, //number
-    jacket: 'black', //string
-    isLong: false //boolean
+    jacket: "black", //string
+    isLong: false, //boolean
 };
 console.log(thief.age);
 
 //array
-const colors = ['red', 'black', 'green', 10, [], {}];
+const colors = ["red", "black", "green", 10, [], {}];
 console.log(colors[1]);
  */
-
-
-
-
 //#8. Foydalanuvchi bilan oddiy muloqot
 /*
 'use strict';
@@ -99,8 +89,6 @@ const age = +prompt('How old are you?', '18');
 console.log(age);
  */
 
-
-
 //#9. Interpolatsiya
 /*
 'use strict';
@@ -113,8 +101,6 @@ const job = 'JavaScript developer';
 
 console.log(`User name is ${user}, he is ${job}`);
  */
-
-
 
 //#10. Operatorlar
 /*
@@ -172,9 +158,6 @@ seriesDB.series[c] = d;
 console.log(seriesDB);
  */
 
-
-
-
 //#13. Shartli operatorlar
 /*
 const age = +prompt("How old are you?", "");
@@ -207,9 +190,6 @@ switch (color) {
 }
  */
 
-
-
-
 //#14. Tsikl
 /*
 // let starNum = 1;
@@ -232,8 +212,6 @@ for (let i = 1; i <= 10; i++) {
     console.log(i);
 }
  */
-
-
 
 //#15. Amaliyot, uyga vazifa. Tskil
 /*
@@ -271,9 +249,6 @@ if (seriesDB.count < 5) {
 console.log(seriesDB);
  */
 
-
-
-
 //#16. Funksiya, ES6
 /*
 //Function declaration
@@ -299,8 +274,6 @@ const calcu = (a, b) => a + b;
 console.log(calcu(10, 1));
  */
 
-
-
 //#17. Metod va Xususiyatlar
 /*
 const user = 'Elyor';
@@ -322,8 +295,6 @@ const borderWidth = '13.8px';
 console.log(parseInt(borderWidth));
 console.log(parseFloat(borderWidth));
  */
-
-
 
 //#18. Amaliyot, uyga vazifa. Funksiya
 
@@ -362,7 +333,7 @@ function rememberMySeries() {
             i--;
         }
     }
-} 2
+}
 
 rememberMySeries();
 
@@ -398,8 +369,6 @@ function writeGenres() {
 writeGenres();
  */
 
-
-
 //#19. Callback
 /*
 function first(cb) {
@@ -426,8 +395,6 @@ function done() {
 
 edu('JavaScript', done);
  */
-
-
 
 //#20. Object. Destruptizatsiya
 
@@ -466,50 +433,42 @@ for (let key in theif) {
 }
  */
 
-
-
 //#21. Massivlar
+/* 
+const arr = [4, 22, 1, 31];
 
+arr.sort((a, b) => a - b);
+console.log(arr);
 
-// const arr = [4, 22, 1, 31];
+function compareFn(a, b) {
+    return a - b;
+}
 
-// arr.sort((a, b) => a - b);
-// console.log(arr);
+arr[99] = 0;
 
-// function compareFn(a, b) {
-//     return a - b;
-// }
+arr.forEach(function (item, index, array) {
+    console.log(`${index}: ${item} into arr ${array}`);
+});
 
-// arr[99] = 0;
+arr.pop();
+arr.push(7);
 
-// arr.forEach(function (item, index, array) {
-//     console.log(`${index}: ${item} into arr ${array}`);
-// });
+arr.shift();
+arr.unshift(0);
 
-// arr.pop();
-// arr.push(7);
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}
 
-// arr.shift();
-// arr.unshift(0);
+for (let value of arr) {
+    console.log(value);
+}
 
-
-// for (let i = 0; i < arr.length; i++) {
-//     console.log(arr[i]);
-// }
-
-
-// for (let value of arr) {
-//     console.log(value);
-// }
-
-// const movies = prompt(`What's your favourite movies`, '');
-// const userMovies = movies.split(", ");
-// userMovies.sort(); // sartirovka
-// console.log(userMovies.join("- "));
-
-
-
-
+const movies = prompt(`What's your favourite movies`, '');
+const userMovies = movies.split(", ");
+userMovies.sort(); // sartirovka
+console.log(userMovies.join("- "));
+ */
 //#22. Clonlash, ES6
 /*
 let x = 10;
@@ -592,8 +551,6 @@ const mixPlayer = [...liverpool, ...manCity];
 console.log(mixPlayer);
  */
 
-
-
 //#23. Spread operator
 
 /*
@@ -618,11 +575,6 @@ const newNumbers = { ...numbers };
 console.log(newNumbers);
 console.log(numbers);
  */
-
-
-
-
-
 
 //#24. OOP asoslari
 
@@ -652,9 +604,7 @@ let bmw = Object.create(car);
 console.log(bmw);
  */
 
-
 //#25. Amaliyot, uyga vazifa. OOP
-
 
 /*
 const seriesDB = {
@@ -741,7 +691,6 @@ const seriesDB = {
 };
  */
 
-
 //#26. Dynamic typing
 /*
 // to string
@@ -783,12 +732,9 @@ console.log(typeof Boolean('4'));
 console.log(typeof !!'4');
  */
 
-
 // to boolean
 
 // '', null, undefined, NaN = xar doim false
-
-
 
 //#27. DOM bilan ishlash
 
@@ -815,8 +761,6 @@ hearts.forEach((item) => {
     console.log(item);
 });
  */
-
-
 
 //#28. Metodlar bilan ishlash
 /*
@@ -860,8 +804,6 @@ myCircle.classList.add('circle');
 // circleWrapper.insertAdjacentHTML('beforeend', '<pre>E</pre>');
  */
 
-
-
 // #29. Amaliyot, uyga vazifa. DOM
 
 /*
@@ -899,91 +841,35 @@ seriesDB.series.forEach((item, idx) => {
 });
  */
 
-
-
-
 // #30. Xodisalar bilan ishlash
 
-// const btn = document.querySelector('#btn');
-// const overlay = document.querySelector('.overlay');
-
-// btn.addEventListener('click', () => {
-//     alert('click');
-// });
-
-// btn.addEventListener('click', () => {
-//     alert('click1');
-// });
-
-// btn.addEventListener('mouseenter', (event) => {
-//     console.log(event.target);
-//     event.target.remove();
-//     alert('Hover');
-// });
-
-
-// let i = 0;
-// const addElement = (evnt) => {
-//     i++;
-//     if (i === 3) {
-//         btn.removeEventListener('click', addElement);
-//     }
-//     console.log(i);
-// };
-
-// btn.addEventListener('click', addElement);
-
-
-// const cb = (e) => {
-//     console.log(e.currentTarget);
-// };
-
-// btn.addEventListener('click', cb);
-// overlay.addEventListener('click', cb);
-
-
-
-// const link = document.querySelector('a');
-
-// link.addEventListener('click', (event) => {
-//     event.preventDefault();
-//     alert('Link');
-// });
-
-// const btns = document.querySelectorAll('button');
-
-// const logger = () => {
-//     console.log(1);
-// };
-
-// btns.forEach((item) => {
-//     item.addEventListener('click', logger);
-// });
-
-
-
-// #31. Navigatsiya DOM bo'yicha
-
-// console.log(document.head);
-// console.log(document.body);
-// console.log(document.body.childNodes);
-// console.log(document.body.firstElementChild);
-// console.log(document.body.lastElementChild);
-
-//console.log(document.querySelector('#btn').parentElement);
-
-// console.log(document.querySelector('[data-current="b"]').nextElementSibling);
-
-// for (let node of document.body.childNodes) {
-//     if (node.nodeName == '#text') {
-//         continue;
-//     }
-//     console.log(node);
-// }
-
-
-const btn = document.querySelector('#btn');
+/* const btn = document.querySelector('#btn');
 const overlay = document.querySelector('.overlay');
+
+btn.addEventListener('click', () => {
+    alert('click');
+});
+
+btn.addEventListener('click', () => {
+    alert('click1');
+});
+
+btn.addEventListener('mouseenter', (event) => {
+    console.log(event.target);
+    event.target.remove();
+    alert('Hover');
+});
+
+let i = 0;
+const addElement = (evnt) => {
+    i++;
+    if (i === 3) {
+        btn.removeEventListener('click', addElement);
+    }
+    console.log(i);
+};
+
+btn.addEventListener('click', addElement);
 
 const cb = (e) => {
     console.log(e.currentTarget);
@@ -992,7 +878,358 @@ const cb = (e) => {
 btn.addEventListener('click', cb);
 overlay.addEventListener('click', cb);
 
-btn.addEventListener('mouseenter', (event) => {
-    event.target.remove();
+const link = document.querySelector('a');
+
+link.addEventListener('click', (event) => {
+    event.preventDefault();
+    alert('Link');
 });
 
+const btns = document.querySelectorAll('button');
+
+const logger = () => {
+    console.log(1);
+};
+
+btns.forEach((item) => {
+    item.addEventListener('click', logger);
+}); */
+
+// #31. Navigatsiya DOM bo'yicha
+
+/* console.log(document.head);
+console.log(document.body);
+console.log(document.body.childNodes);
+console.log(document.body.firstElementChild);
+console.log(document.body.lastElementChild);
+
+console.log(document.querySelector('#btn').parentElement);
+
+console.log(document.querySelector('[data-current="b"]').nextElementSibling);
+
+for (let node of document.body.childNodes) {
+    if (node.nodeName == '#text') {
+        continue;
+    }
+    console.log(node);
+} */
+
+//#32. Amaliyot, uyga vazifa. DOM xodisa
+/* 
+document.addEventListener("DOMContentLoaded", () => {
+    const adv = document.querySelectorAll(".promo__adv img"),
+        wrapper = document.querySelector(".promo__bg"),
+        genre = wrapper.querySelector(".promo__genre"),
+        seriesList = document.querySelector(".promo__interactive-list"),
+        addForm = document.querySelector("form.add"),
+        inputVal = addForm.querySelector(".adding__input"),
+        checkbox = addForm.querySelector("[type='checkbox']");
+
+    const seriesDB = {
+        series: [
+            "Omar",
+            "The Final Legacy",
+            "Ertugrul",
+            "Magnificent Century",
+            "The Great Seljuks: Guardians...",
+        ],
+    };
+
+    addForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        let newSeries = inputVal.value;
+        const favourite = checkbox.checked;
+
+        if (newSeries) {
+            if (newSeries.length > 18) {
+                newSeries = `${newSeries.substring(0, 18)}...`;
+            }
+
+            if (favourite) {
+                console.log("Sevimli serial qo’shilidi");
+            }
+
+            seriesDB.series.push(newSeries);
+            sortArr(seriesDB.series);
+
+            createSeriesList(seriesDB.series, seriesList);
+        }
+
+        event.target.reset();
+    });
+
+    const deleteAdv = (arr) => {
+        adv.forEach((item) => {
+            item.remove();
+        });
+    };
+
+    const makeChanges = () => {
+        genre.textContent = "comedy";
+
+        wrapper.style.backgroundImage = 'url("img/1.jpg")';
+    };
+
+    const sortArr = (arr) => {
+        arr.sort();
+    };
+
+    function createSeriesList(series, parent) {
+        parent.innerHTML = "";
+        sortArr(series);
+
+        series.forEach((item, idx) => {
+            parent.innerHTML += `
+        <li class="promo__interactive-item">${idx + 1} ${item}
+          <div class="delete"></div>
+        </li>
+      `;
+        });
+
+        document.querySelectorAll(".delete").forEach((trash, idx) => {
+            trash.addEventListener("click", () => {
+                trash.parentElement.remove();
+                seriesDB.series.splice(idx, 1);
+
+                createSeriesList(series, parent);
+            });
+        });
+    }
+
+    sortArr(seriesDB.series);
+    deleteAdv(adv);
+    makeChanges();
+    createSeriesList(seriesDB.series, seriesList);
+});
+ */
+
+// #33. Async, defer. Dynamic scriptlar
+
+/* const p = document.querySelectorAll("p");
+console.log(p);
+
+function loadScript(src) {
+    const script = document.createElement("script");
+    script.src = src;
+    script.async = false;
+    document.body.append(script);
+}
+
+loadScript("./second.js");
+loadScript("/third.js"); */
+
+//#34. Developer tools. Xatolarni kuzatish
+/* 
+function sayHello() {
+    console.log("Good morning");
+}
+sayHello();
+
+function sayBye() {
+    console.log("Good bye");
+}
+sayBye();
+
+const arr = [1, 34, 14, -56, 98],
+    sorted = arr.sort(compareNum);
+
+function compareNum(a, b) {
+    return a - b;
+}
+
+console.log(sorted); */
+
+// #35. Classlist
+
+// const btns = document.querySelectorAll("button");
+
+//console.log(btns[0].classList.length); //class soni
+//console.log(btns[0].classList.item(0)); // nomi chiqaradi
+
+// btns[1].classList.add("blue", "some"); // qoshadi
+// btns[0].classList.remove("blue"); // ochiradi
+// btns[0].classList.toggle("blue"); // bor bosa yoq + yoq bosa bor
+
+/* btns[0].classList.add("red");
+
+if (btns[0].classList.contains("red")) {
+    //class nomini qidiradi
+    console.log("yeap");
+} */
+/* 
+btns[0].addEventListener("click", () => {
+    // if (!btns[1].classList.contains("red")) {
+    //     btns[1].classList.add("red");
+    // } else {
+    //     btns[1].classList.remove("red");
+    // }
+    // btns[1].classList.toggle("red");
+}); */
+
+// #36. Delegatsiya
+/* 
+const wrapper = document.querySelector(".btn-block"),
+    btns = document.querySelectorAll("button");
+
+btns[0].addEventListener("click", () => {
+    btns[1].classList.toggle("red");
+});
+
+wrapper.addEventListener("click", (event) => {
+    if (event.target && event.target.matches("button.red")) {
+        console.log("btn click");
+    }
+});
+
+btns.forEach((item) => {
+    item.addEventListener("click", () => {
+        console.log("clicked");
+    });
+});
+
+const btn = document.createElement("button");
+btn.classList.add("red");
+wrapper.append(btn);
+ */
+
+// #37. Loyiha, Tab
+/* 
+window.addEventListener("DOMContentLoaded", () => {
+    const tabsParent = document.querySelector(".tabheader__items"),
+        tabs = document.querySelectorAll(".tabheader__item"),
+        tabsContent = document.querySelectorAll(".tabcontent");
+
+    function hideTabContent() {
+        tabsContent.forEach((item) => {
+            item.classList.add("hide");
+            item.classList.remove("show", "fade");
+        });
+
+        tabs.forEach((item) => {
+            item.classList.remove("tabheader__item_active");
+        });
+    }
+    function showTabContent(i = 0) {
+        tabsContent[i].classList.add("show", "fade");
+        tabsContent[i].classList.remove("hide");
+        tabs[i].classList.add("tabheader__item_active");
+    }
+
+    hideTabContent();
+    showTabContent();
+
+    tabsParent.addEventListener("click", (event) => {
+        const target = event.target;
+        if (target && target.classList.contains("tabheader__item")) {
+            tabs.forEach((item, index) => {
+                if (target == item) {
+                    hideTabContent();
+                    showTabContent(index);
+                }
+            });
+        }
+    });
+});
+ */
+
+// #38. Animatsiya. setTimeOut & setInterval
+
+/* const btn = document.querySelector("#btn");
+
+function myAnimation() {
+    const car = document.querySelector(".car");
+    let pos = 0;
+
+    const timerId = setInterval(frame, 10);
+
+    function frame() {
+        if (pos === 700) {
+            clearInterval(timerId);
+        } else {
+            pos++;
+            car.style.left = pos + "px";
+        }
+    }
+}
+
+btn.addEventListener("click", myAnimation); */
+
+// #39. Loyiha loader
+
+/* window.addEventListener("DOMContentLoaded", () => {
+    loader = document.querySelector(".loader");
+
+    // Loader
+
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 500);
+    }, 2000);
+}); */
+
+// #40. Date bilan ishlash
+/* 
+let start = new Date();
+
+for (let i = 0; i < 100000; i++) {
+    let sone = i ** 3;
+}
+
+let end = new Date();
+
+console.log(start.getTime());
+console.log(end.getTime());
+
+alert(`Loop competed in ${end - start} milliseconds`);
+ */
+
+// #41. Loyiha. Chegara
+// Timer
+/* 
+const deadline = "2023-06-13";
+
+function getTimeRemaining(endtime) {
+    const timer = Date.parse(endtime) - Date.parse(new Date()),
+        days = Math.floor(timer / (1000 * 60 * 60 * 24)),
+        hours = Math.floor((timer / (1000 * 60 * 60)) % 24),
+        minutes = Math.floor((timer / 1000 / 60) % 60),
+        seconds = Math.floor((timer / 1000) % 60);
+
+    return { timer, days, hours, minutes, seconds };
+}
+
+function getZero(num) {
+    if (num >= 0 && num < 10) {
+        return `0${num}`;
+    } else {
+        return num;
+    }
+}
+
+function setClock(selector, endtime) {
+    const timer = document.querySelector(selector),
+        days = timer.querySelector("#days"),
+        hours = timer.querySelector("#hours"),
+        minutes = timer.querySelector("#minutes"),
+        seconds = timer.querySelector("#seconds"),
+        timeInterval = setInterval(updateClock, 1000);
+
+    updateClock();
+
+    function updateClock() {
+        const t = getTimeRemaining(endtime);
+
+        days.innerHTML = getZero(t.days);
+        hours.innerHTML = getZero(t.hours);
+        minutes.innerHTML = getZero(t.minutes);
+        seconds.innerHTML = getZero(t.seconds);
+
+        if (t.timer <= 0) {
+            clearInterval(timeInterval);
+        }
+    }
+}
+setClock(".timer", deadline); */
