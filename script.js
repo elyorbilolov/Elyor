@@ -1041,7 +1041,7 @@ function compareNum(a, b) {
 console.log(sorted); */
 
 // #35. Classlist
-
+/* 
 // const btns = document.querySelectorAll("button");
 
 //console.log(btns[0].classList.length); //class soni
@@ -1051,21 +1051,21 @@ console.log(sorted); */
 // btns[0].classList.remove("blue"); // ochiradi
 // btns[0].classList.toggle("blue"); // bor bosa yoq + yoq bosa bor
 
-/* btns[0].classList.add("red");
+// btns[0].classList.add("red");
 
-if (btns[0].classList.contains("red")) {
-    //class nomini qidiradi
-    console.log("yeap");
-} */
-/* 
-btns[0].addEventListener("click", () => {
-    // if (!btns[1].classList.contains("red")) {
-    //     btns[1].classList.add("red");
-    // } else {
-    //     btns[1].classList.remove("red");
-    // }
-    // btns[1].classList.toggle("red");
-}); */
+// if (btns[0].classList.contains("red")) {
+//     //class nomini qidiradi
+//     console.log("yeap");
+// }
+
+// btns[0].addEventListener("click", () => {
+//     // if (!btns[1].classList.contains("red")) {
+//     //     btns[1].classList.add("red");
+//     // } else {
+//     //     btns[1].classList.remove("red");
+//     // }
+//     // btns[1].classList.toggle("red");
+// }); */
 
 // #36. Delegatsiya
 /* 
@@ -1192,12 +1192,20 @@ alert(`Loop competed in ${end - start} milliseconds`);
 const deadline = "2023-06-13";
 
 function getTimeRemaining(endtime) {
-    const timer = Date.parse(endtime) - Date.parse(new Date()),
-        days = Math.floor(timer / (1000 * 60 * 60 * 24)),
-        hours = Math.floor((timer / (1000 * 60 * 60)) % 24),
-        minutes = Math.floor((timer / 1000 / 60) % 60),
-        seconds = Math.floor((timer / 1000) % 60);
+    let days, hours, minutes, seconds;
+    const timer = Date.parse(endtime) - Date.parse(new Date());
 
+    if (timer <= 0) {
+        days = 0;
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+    } else {
+        (days = Math.floor(timer / (1000 * 60 * 60 * 24))),
+            (hours = Math.floor((timer / (1000 * 60 * 60)) % 24)),
+            (minutes = Math.floor((timer / 1000 / 60) % 60)),
+            (seconds = Math.floor((timer / 1000) % 60));
+    }
     return { timer, days, hours, minutes, seconds };
 }
 
@@ -1233,3 +1241,625 @@ function setClock(selector, endtime) {
     }
 }
 setClock(".timer", deadline); */
+
+// #43. Window, Doc bilan ishlash
+
+/* const box = document.querySelector(".box"),
+    btn = document.querySelector("button");
+
+const width = box.clientWidth;
+const height = box.clientHeight;
+
+// const width = box.offsetWidth;
+// const height = box.offsetHeight;
+
+// const height = box.scrollHeight;
+
+// btn.addEventListener("click", () => {
+//     // box.style.height = box.scrollHeight + "px";
+//     console.log(box.scrollTop);
+// });
+
+// const style = window.getComputedStyle(box);
+
+// console.log(style);
+
+// console.log(document.documentElement.clientWidth);
+ */
+
+// #44. Loyiha. Modal
+/* 
+window.addEventListener("DOMContentLoaded", () => {
+    const tabsParent = document.querySelector(".tabheader__items"),
+        tabs = document.querySelectorAll(".tabheader__item"),
+        tabsContent = document.querySelectorAll(".tabcontent"),
+        loader = document.querySelector(".loader");
+
+    // Loader
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 500);
+    }, 2000);
+
+    // Preview
+    function hideTabContent() {
+        tabsContent.forEach((item) => {
+            item.classList.add("hide");
+            item.classList.remove("show", "fade");
+        });
+
+        tabs.forEach((item) => {
+            item.classList.remove("tabheader__item_active");
+        });
+    }
+    function showTabContent(i = 0) {
+        tabsContent[i].classList.add("show", "fade");
+        tabsContent[i].classList.remove("hide");
+        tabs[i].classList.add("tabheader__item_active");
+    }
+
+    hideTabContent();
+    showTabContent();
+
+    tabsParent.addEventListener("click", (event) => {
+        const target = event.target;
+        if (target && target.classList.contains("tabheader__item")) {
+            tabs.forEach((item, index) => {
+                if (target == item) {
+                    hideTabContent();
+                    showTabContent(index);
+                }
+            });
+        }
+    });
+    // Timer
+
+    const deadline = "2024-06-13";
+
+    function getTimeRemaining(endtime) {
+        let days, hours, minutes, seconds;
+        const timer = Date.parse(endtime) - Date.parse(new Date());
+
+        if (timer <= 0) {
+            days = 0;
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+        } else {
+            (days = Math.floor(timer / (1000 * 60 * 60 * 24))),
+                (hours = Math.floor((timer / (1000 * 60 * 60)) % 24)),
+                (minutes = Math.floor((timer / 1000 / 60) % 60)),
+                (seconds = Math.floor((timer / 1000) % 60));
+        }
+        return { timer, days, hours, minutes, seconds };
+    }
+
+    function getZero(num) {
+        if (num >= 0 && num < 10) {
+            return `0${num}`;
+        } else {
+            return num;
+        }
+    }
+
+    function setClock(selector, endtime) {
+        const timer = document.querySelector(selector),
+            days = timer.querySelector("#days"),
+            hours = timer.querySelector("#hours"),
+            minutes = timer.querySelector("#minutes"),
+            seconds = timer.querySelector("#seconds"),
+            timeInterval = setInterval(updateClock, 1000);
+
+        updateClock();
+
+        function updateClock() {
+            const t = getTimeRemaining(endtime);
+
+            days.innerHTML = getZero(t.days);
+            hours.innerHTML = getZero(t.hours);
+            minutes.innerHTML = getZero(t.minutes);
+            seconds.innerHTML = getZero(t.seconds);
+
+            if (t.timer <= 0) {
+                clearInterval(timeInterval);
+            }
+        }
+    }
+    setClock(".timer", deadline);
+
+    // Modal
+
+    const modalTrigger = document.querySelectorAll("[data-modal]"),
+        modal = document.querySelector(".modal"),
+        modalCloseBtn = document.querySelector("[data-close]");
+
+    function openModal() {
+        modal.classList.add("show");
+        modal.classList.remove("hide");
+        document.body.style.overflow = "hidden";
+        clearInterval(modalTimerId);
+    }
+
+    function closeModal() {
+        modal.classList.add("hide");
+        modal.classList.remove("show");
+        document.body.style.overflow = "";
+    }
+
+    modalTrigger.forEach((item) => {
+        item.addEventListener("click", openModal);
+    });
+
+    modalCloseBtn.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (e) => {
+        if (e.target == modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.code === "Escape" && modal.classList.contains("show")) {
+            closeModal();
+        }
+    });
+
+    const modalTimerId = setTimeout(openModal, 3000);
+
+    function showModalByScroll() {
+        if (
+            window.pageYOffset + document.documentElement.clientHeight >=
+            document.documentElement.scrollHeight
+        ) {
+            openModal();
+            window.removeEventListener("scroll", showModalByScroll);
+        }
+    }
+    window.addEventListener("scroll", showModalByScroll);
+}); */
+
+//#46. Function constructor
+
+/* function Car(name, color, mph) {
+    this.name = name;
+    this.color = color;
+    this.mph = mph;
+    this.isAirbag = true;
+    this.speed = function () {
+        console.log(`Speed of car ${this.name} is ${this.mph}`);
+    };
+}
+
+Car.prototype.sayHello = function () {
+    console.log(`Car name of ${this.name} say hello`);
+};
+
+const bmw = new Car("bmw", "red", 32);
+const merc = new Car("merc", "black", 10);
+
+bmw.sayHello();
+merc.sayHello();
+
+bmw.speed();
+merc.speed();
+
+console.log(bmw);
+console.log(merc); */
+
+// #47. Context this & Closure
+/* 
+"use strict";
+
+// const this - xar doim nimagadur qaram(o'siladi);
+
+// ************** --------------- **************
+
+// 1-) Oddiy functionni contexti ya'ni this xar doim window global objectga qaram bo'ladi
+// yani osiladi. Agarda qatiy rejim yoqu bo'lsa (use strict) context undefinedga teng
+
+// function logger(a, b) {
+//     console.log(this);
+//     function sum() {
+//         console.log(this);
+//         return a + b;
+//     }
+//     console.log(sum());
+// }
+// logger(1, 2);
+
+// ************** --------------- **************
+// 2-) Context this objectni ichidagi metodda - objectni o'ziga teng
+
+// const obj = {
+//     x: 10,
+//     y: 5,
+//     sum: function () {
+//         console.log(this);
+//     },
+// };
+
+// obj.sum();
+
+// ************** --------------- **************
+// 3-) Context this functioni konstruktorda yangi objectni ekzempyariga teng
+
+// function Car(name, color) {
+//     this.name = name;
+//     this.color = color;
+//     this.isAirbag = true;
+// }
+// const bmw = new Car("BMW", "Black");
+// console.log(bmw);
+
+// ************** --------------- **************
+//Closure
+// const a = 4;
+// function log() {
+//     console.log(a);
+// }
+// log(); */
+
+// #48. Call, Apply & Bind
+/* 
+// //1
+// function logger(speed) {
+//     console.log(this);
+//     console.log(
+//         `My car is ${this.name} color is ${this.color}. Max speed ${speed}`
+//     );
+// }
+
+// const car = {
+//     name: "BMW",
+//     color: "Black",
+// };
+
+// logger.call(car, 200);
+// logger.apply(car, [300]);
+
+//2
+// function calc(number) {
+//     return this * number;
+// }
+
+// const multilpe2 = calc.bind(2);
+// console.log(multilpe2(10));
+// console.log(multilpe2(15));
+
+//3
+// const btn = document.querySelector("button");
+
+// btn.addEventListener("click", (e) => {
+//     e.target.style.width = "400px";
+// });
+
+//4
+// const obj = {
+//     x: 10,
+//     y: 15,
+//     sum: function () {
+//         const logger = () => {
+//             console.log(this.y);
+//         };
+//         logger();
+//     },
+// };
+// obj.sum();
+
+// strelkali funksiya xech qanday contextga ega emas
+// xar doim o'zini tepasidagi contextga qaram boladi */
+
+// #49. Class ES6
+/* class Car {
+    constructor(name, color, speed) {
+        (this.name = name), (this.color = color), (this.speed = speed);
+    }
+
+    calcSpeed() {
+        return this.speed * 100;
+    }
+}
+
+// const bmw = new Car("BMW", "Black", 200);
+// const merc = new Car("MERC", "White", 100);
+
+// console.log(bmw.calcSpeed());
+// console.log(merc);
+
+class Spark extends Car {
+    constructor(name, color, speed, isAirbag, extraBallon) {
+        super(name, color, speed),
+            (this.isAirbag = isAirbag),
+            (this.extraBallon = extraBallon);
+    }
+
+    logger() {
+        console.log(
+            `Name of car ${this.name}, color is ${this.color}. Is air bag there ${this.isAirbag}. Are there extra ballon ${this.extraBallon}`
+        );
+    }
+}
+const aboutcar = new Spark("Spark", "White", 200, true, 5);
+
+aboutcar.logger();
+console.log(aboutcar.calcSpeed());
+console.log(aboutcar);
+ */
+
+// #50. Loyiha class
+
+/* window.addEventListener("DOMContentLoaded", () => {
+    const tabsParent = document.querySelector(".tabheader__items"),
+        tabs = document.querySelectorAll(".tabheader__item"),
+        tabsContent = document.querySelectorAll(".tabcontent"),
+        loader = document.querySelector(".loader");
+
+    // Loader
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 500);
+    }, 2000);
+
+    // Preview
+    function hideTabContent() {
+        tabsContent.forEach((item) => {
+            item.classList.add("hide");
+            item.classList.remove("show", "fade");
+        });
+
+        tabs.forEach((item) => {
+            item.classList.remove("tabheader__item_active");
+        });
+    }
+    function showTabContent(i = 0) {
+        tabsContent[i].classList.add("show", "fade");
+        tabsContent[i].classList.remove("hide");
+        tabs[i].classList.add("tabheader__item_active");
+    }
+
+    hideTabContent();
+    showTabContent();
+
+    tabsParent.addEventListener("click", (event) => {
+        const target = event.target;
+        if (target && target.classList.contains("tabheader__item")) {
+            tabs.forEach((item, index) => {
+                if (target == item) {
+                    hideTabContent();
+                    showTabContent(index);
+                }
+            });
+        }
+    });
+    // Timer
+
+    const deadline = "2024-06-13";
+
+    function getTimeRemaining(endtime) {
+        let days, hours, minutes, seconds;
+        const timer = Date.parse(endtime) - Date.parse(new Date());
+
+        if (timer <= 0) {
+            days = 0;
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+        } else {
+            (days = Math.floor(timer / (1000 * 60 * 60 * 24))),
+                (hours = Math.floor((timer / (1000 * 60 * 60)) % 24)),
+                (minutes = Math.floor((timer / 1000 / 60) % 60)),
+                (seconds = Math.floor((timer / 1000) % 60));
+        }
+        return { timer, days, hours, minutes, seconds };
+    }
+
+    function getZero(num) {
+        if (num >= 0 && num < 10) {
+            return `0${num}`;
+        } else {
+            return num;
+        }
+    }
+
+    function setClock(selector, endtime) {
+        const timer = document.querySelector(selector),
+            days = timer.querySelector("#days"),
+            hours = timer.querySelector("#hours"),
+            minutes = timer.querySelector("#minutes"),
+            seconds = timer.querySelector("#seconds"),
+            timeInterval = setInterval(updateClock, 1000);
+
+        updateClock();
+
+        function updateClock() {
+            const t = getTimeRemaining(endtime);
+
+            days.innerHTML = getZero(t.days);
+            hours.innerHTML = getZero(t.hours);
+            minutes.innerHTML = getZero(t.minutes);
+            seconds.innerHTML = getZero(t.seconds);
+
+            if (t.timer <= 0) {
+                clearInterval(timeInterval);
+            }
+        }
+    }
+    setClock(".timer", deadline);
+
+    // Modal
+
+    const modalTrigger = document.querySelectorAll("[data-modal]"),
+        modal = document.querySelector(".modal"),
+        modalCloseBtn = document.querySelector("[data-close]");
+
+    function openModal() {
+        modal.classList.add("show");
+        modal.classList.remove("hide");
+        document.body.style.overflow = "hidden";
+        clearInterval(modalTimerId);
+    }
+
+    function closeModal() {
+        modal.classList.add("hide");
+        modal.classList.remove("show");
+        document.body.style.overflow = "";
+    }
+
+    modalTrigger.forEach((item) => {
+        item.addEventListener("click", openModal);
+    });
+
+    modalCloseBtn.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (e) => {
+        if (e.target == modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.code === "Escape" && modal.classList.contains("show")) {
+            closeModal();
+        }
+    });
+
+    const modalTimerId = setTimeout(openModal, 3000);
+
+    function showModalByScroll() {
+        if (
+            window.pageYOffset + document.documentElement.clientHeight >=
+            document.documentElement.scrollHeight
+        ) {
+            openModal();
+            window.removeEventListener("scroll", showModalByScroll);
+        }
+    }
+    window.addEventListener("scroll", showModalByScroll);
+
+    //Class
+    class MenuCard {
+        constructor(src, alt, title, deser, price, parentSelector, ...classes) {
+            (this.src = src),
+                (this.alt = alt),
+                (this.title = title),
+                (this.deser = deser),
+                (this.price = price),
+                (this.classes = classes),
+                (this.parent = document.querySelector(parentSelector)),
+                (this.transfer = 11520),
+                this.chageToUZS();
+        }
+        chageToUZS() {
+            this.price = this.price * this.transfer;
+        }
+
+        render() {
+            const element = document.createElement("div");
+
+            if (this.classes.length === 0) {
+                this.element = "menu__item";
+                element.classList.add(this.element);
+            } else {
+                this.classes.forEach((classname) =>
+                    element.classList.add(classname)
+                );
+            }
+
+            element.innerHTML = `
+            
+                <img src=${this.src} alt=${this.alt} />
+                <h3 class="menu__item-subtitle">${this.title}</h3>
+                <div class="menu__item-descr">${this.deser}</div>
+                <div class="menu__item-divider"></div>
+                <div class="menu__item-price">
+                    <div class="menu__item-cost">Price:</div>
+                    <div class="menu__item-total"><span>${this.price}</span> uzs/month</div>
+                </div>`;
+
+            this.parent.append(element);
+        }
+    }
+
+    new MenuCard(
+        "img/tabs/1.png",
+        "usual",
+        'Plan "Usual"',
+        "Lorem ipsum dolor sit amet consectetur adipisicin elit. Praesentium a delectus quae impedit voluptas architecto veritatis minima adipisci corrupti dolore, quisquam, cum odit. Accusamus officia, laboriosam iste est minus sit.",
+        10,
+        ".menu .container"
+    ).render();
+
+    new MenuCard(
+        "img/tabs/2.jpg",
+        "alite",
+        'Plan "Premium"',
+        "Lorem ipsum dolor sit amet consectetur adipisicin elit. Praesentium a delectus quae impedit voluptas architecto veritatis minima adipisci corrupti dolore, quisquam, cum odit. Accusamus officia, laboriosam iste est minus sit.",
+        15,
+        ".menu .container",
+        "menu__item"
+    ).render();
+
+    new MenuCard(
+        "img/tabs/3.jpg",
+        "vip",
+        'Plan "VIP"',
+        "Lorem ipsum dolor sit amet consectetur adipisicin elit. Praesentium a delectus quae impedit voluptas architecto veritatis minima adipisci corrupti dolore, quisquam, cum odit. Accusamus officia, laboriosam iste est minus sit.",
+        20,
+        ".menu .container",
+        "menu__item"
+    ).render();
+});
+ */
+
+// #54. JSON Chuqur clonlash
+/* 
+const car = {
+    name: "bmw",
+    color: "red",
+    extra: {
+        isAirbag: false,
+        ballon: 5,
+    },
+};
+
+const clone = JSON.parse(JSON.stringify(car));
+
+clone.extra.ballon = 10;
+
+console.log(clone);
+console.log(car);
+
+// const objToJSON = JSON.stringify(car);
+// const jsonToObj = JSON.parse(objToJSON);
+// console.log(objToJSON);
+// console.log(jsonToObj);
+
+// json.stringify = objectdan json formatga o'girib beradi.
+// json.parse = json formatdan objectga o'girib beradi.
+ */
+
+// #55. AJAX
+
+/* const uzs = document.querySelector("#uzs"),
+    usd = document.querySelector("#usd");
+
+uzs.addEventListener("input", (e) => {
+    const request = new XMLHttpRequest();
+
+    request.open("GET", "current.json");
+    request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    request.send();
+
+    request.addEventListener("load", () => {
+        if (request.status === 200) {
+            const data = JSON.parse(request.response);
+            usd.value = (+uzs.value / data.current.usd).toFixed(2);
+        } else {
+            usd.value = "Something went wrong";
+        }
+    });
+}); */
