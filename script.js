@@ -1590,7 +1590,7 @@ console.log(aboutcar);
 
 // #50. Loyiha class
 
-/* window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
     const tabsParent = document.querySelector(".tabheader__items"),
         tabs = document.querySelectorAll(".tabheader__item"),
         tabsContent = document.querySelectorAll(".tabcontent"),
@@ -1812,8 +1812,60 @@ console.log(aboutcar);
         ".menu .container",
         "menu__item"
     ).render();
+
+    // FORM
+
+    const forms = document.querySelectorAll("form");
+
+    forms.forEach((form) => {
+        postData(form);
+    });
+
+    const msg = {
+        loading: "Loading...",
+        success: "Thank's for submitting our form",
+        failure: "Something went wrong",
+    };
+
+    function postData(form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const statusMessage = document.createElement("div");
+            statusMessage.textContent = msg.loading;
+            form.append(statusMessage);
+
+            const request = new XMLHttpRequest();
+            request.open("GET", "server.php");
+
+            request.setRequestHeader("Content-Type", "application/json");
+
+            const obj = {};
+            const formData = new FormData(form);
+
+            formData.forEach((val, key) => {
+                obj[key] = val;
+            });
+
+            const json = JSON.stringify(obj);
+
+            request.send(json);
+
+            request.addEventListener("load", () => {
+                if (request.status === 200) {
+                    console.log(request.response);
+                    statusMessage.textContent = msg.success;
+                    form.reset();
+                    setTimeout(() => {
+                        statusMessage.remove();
+                    }, 2000);
+                } else {
+                    statusMessage.textContent = msg.failure;
+                }
+            });
+        });
+    }
 });
- */
 
 // #54. JSON Chuqur clonlash
 /* 
@@ -1863,3 +1915,5 @@ uzs.addEventListener("input", (e) => {
         }
     });
 }); */
+
+//#56. Ma'lumot yuborish
