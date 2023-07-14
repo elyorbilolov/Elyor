@@ -1589,7 +1589,7 @@ console.log(aboutcar);
  */
 
 // #50. Loyiha class
-
+/* 
 window.addEventListener("DOMContentLoaded", () => {
     const tabsParent = document.querySelector(".tabheader__items"),
         tabs = document.querySelectorAll(".tabheader__item"),
@@ -1888,7 +1888,7 @@ window.addEventListener("DOMContentLoaded", () => {
             closeModal();
         }, 4000);
     }
-});
+}); */
 
 // #54. JSON Chuqur clonlash
 /* 
@@ -1939,4 +1939,18 @@ uzs.addEventListener("input", (e) => {
     });
 }); */
 
-//#57. Dynamic styling
+//#58. Promise
+
+const isFrendCome = true;
+
+const meetingRequest = new Promise((resolve, reject) => {
+    if (isFrendCome) {
+        const msg = "Frend I'm there";
+        resolve(msg);
+    } else {
+        const err = "I can't come there";
+        reject(err);
+    }
+});
+
+meetingRequest.then((msg) => console.log(msg)).catch((err) => console.log(err));
