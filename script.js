@@ -1940,17 +1940,91 @@ uzs.addEventListener("input", (e) => {
 }); */
 
 //#58. Promise
+/* 
+// #1
+// const isFrendCome = false;
 
-const isFrendCome = true;
+// const meetingRequest = new Promise((resolve, reject) => {
+//     if (isFrendCome) {
+//         const msg = "Frend I'm there";
+//         resolve(msg);
+//     } else {
+//         const err = "I can't come there";
+//         reject(err);
+//     }
+// });
 
-const meetingRequest = new Promise((resolve, reject) => {
-    if (isFrendCome) {
-        const msg = "Frend I'm there";
-        resolve(msg);
-    } else {
-        const err = "I can't come there";
-        reject(err);
-    }
+// meetingRequest
+//     .then((msg) => console.log(msg))
+//     .catch((err) => console.log(err))
+//     .finally(() => console.log("I'm colling you"));
+
+// #2
+
+console.log("Request data...");
+
+const req = new Promise((resolve) => {
+    setTimeout(() => {
+        const product = {
+            name: "car",
+            color: "black",
+        };
+        console.log("Processing data...")
+        resolve(product);
+    }, 2000);
 });
 
-meetingRequest.then((msg) => console.log(msg)).catch((err) => console.log(err));
+req.then((data) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            data.status = "ordered";
+            console.log("Get data...");
+            reject();
+        }, 2000);
+    });
+})
+    .then((result) => console.log(result))
+    .catch(() => console.log("Something went wrong"))
+    .finally(() => console.log("Fatching end"));
+ */
+
+// #59. Promise Method
+/* 
+const request = (time) => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(), time);
+    });
+};
+// #1
+request(1000).then(() => console.log("Request 1000 ms"));
+request(2000).then(() => console.log("Request 2000 ms"));
+request(3000).then(() => console.log("Request 3000 ms"));
+
+// #2
+// Promise.all([request(1000), request(2000), request(3000)]).then(() => {
+//     console.log("All");
+// });
+
+// #3
+// Promise.race([request(1000), request(2000), request(3000)]).then(() => {
+//     console.log("All");
+// });
+ */
+
+const request = (time) => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(), time);
+    });
+};
+
+request(1000).then(() => console.log("Request 1000 ms"));
+request(2000).then(() => console.log("Request 2000 ms"));
+request(3000).then(() => console.log("Request 3000 ms"));
+
+Promise.all([request(1000), request(2000), request(3000)]).then(() => {
+    console.log("All");
+});
+
+Promise.race([request(1000), request(2000), request(3000)]).then(() => {
+    console.log("All");
+});
