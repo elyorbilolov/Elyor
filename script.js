@@ -1835,34 +1835,34 @@ window.addEventListener("DOMContentLoaded", () => {
             margin: 0 auto;`;
             form.insertAdjacentElement("afterend", statusMessage);
 
-            const request = new XMLHttpRequest();
-            request.open("POST", "server.php");
-
-            request.setRequestHeader("Content-Type", "application/json");
+            const formData = new FormData(form);
 
             const obj = {};
-            const formData = new FormData(form);
 
             formData.forEach((val, key) => {
                 obj[key] = val;
             });
 
-            const json = JSON.stringify(obj);
-
-            request.send(json);
-
-            request.addEventListener("load", () => {
-                if (request.status === 200) {
-                    console.log(request.response);
+            fetch("server.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: formData,
+            })
+                .then((data) => data.text())
+                .then((data) => {
+                    console.log(data);
                     showThanksModal(msg.success);
-                    form.reset();
-                    setTimeout(() => {
-                        statusMessage.remove();
-                    }, 2000);
-                } else {
+
+                    statusMessage.remove();
+                })
+                .catch(() => {
                     showThanksModal(msg.failure);
-                }
-            });
+                })
+                .finally(() => {
+                    form.reset();
+                });
         });
     }
 
@@ -2011,20 +2011,52 @@ request(3000).then(() => console.log("Request 3000 ms"));
 // });
  */
 
-const request = (time) => {
-    return new Promise((resolve) => {
-        setTimeout(() => resolve(), time);
-    });
-};
+//#60. Fetch API
 
-request(1000).then(() => console.log("Request 1000 ms"));
-request(2000).then(() => console.log("Request 2000 ms"));
-request(3000).then(() => console.log("Request 3000 ms"));
+/* fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name: "elyor" }),
+})
+    .then((response) => response.json())
+    .then((json) => console.log(json)); */
 
-Promise.all([request(1000), request(2000), request(3000)]).then(() => {
-    console.log("All");
-});
+//#61. Map Filter Reduce
 
-Promise.race([request(1000), request(2000), request(3000)]).then(() => {
-    console.log("All");
-});
+//#1
+//Map method - yangi massiv qaytaradi eski massivni qiymatini o'zgartirib
+
+// const car = ["MErc", "BmW", "TesLa"];
+// const arr = car.map((item) => item.toLowerCase());
+// console.log(arr);
+
+//#2
+//Filter method - yangi massiv qaytaradi filter qilib
+
+// let car = ["mercedez benz", "bmw", "audi", "rollce royce"];
+// car = car.filter((item) => item.length < 5);
+// console.log(car);
+
+//#3
+// SOME/EVERY method - boolean qiymat qaytaradi
+
+// const arr = [1, "elyor", true];
+// console.log(arr.some((item) => typeof item === "number"));
+// console.log(arr.every((item) => typeof item === "number"));
+
+//#4
+// REDUCE method - bitta qandaydur qiymat qaytaradi
+
+// const arr = [4, 32, 1, 3];
+// const res = arr.reduce((sum, current) => sum + current, 10);
+// console.log(res);
+
+// const arr = ["bmw", "merc", "tayota", "tesla"];
+// const res = arr.reduce((sum, current) => `${sum}, ${current}`);
+// console.log(res);
+
+
+// #62. NPM
+else
