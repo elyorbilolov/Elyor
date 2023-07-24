@@ -1815,7 +1815,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const forms = document.querySelectorAll("form");
 
     forms.forEach((form) => {
-        postData(form);
+        bindPostData(form);
     });
 
     const msg = {
@@ -1824,7 +1824,18 @@ window.addEventListener("DOMContentLoaded", () => {
         failure: "Something went wrong",
     };
 
-    function postData(form) {
+    async function postData(url, data) {
+        const res = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: data,
+        });
+        return await res.json();
+    }
+
+    function bindPostData(form) {
         form.addEventListener("submit", (e) => {
             e.preventDefault();
 
@@ -1837,24 +1848,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
             const formData = new FormData(form);
 
-            const obj = {};
+            const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-            formData.forEach((val, key) => {
-                obj[key] = val;
-            });
-
-            fetch("server.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: formData,
-            })
-                .then((data) => data.text())
+            postData("http://localhost:3000/request", json)
                 .then((data) => {
                     console.log(data);
                     showThanksModal(msg.success);
-
                     statusMessage.remove();
                 })
                 .catch(() => {
@@ -1888,10 +1887,6 @@ window.addEventListener("DOMContentLoaded", () => {
             closeModal();
         }, 4000);
     }
-
-    fetch("db.json")
-        .then((data) => data.json())
-        .then((res) => console.log(res));
 });
 
 // #54. JSON Chuqur clonlash
