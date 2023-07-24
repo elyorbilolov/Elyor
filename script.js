@@ -1589,7 +1589,7 @@ console.log(aboutcar);
  */
 
 // #50. Loyiha class
-/* 
+
 window.addEventListener("DOMContentLoaded", () => {
     const tabsParent = document.querySelector(".tabheader__items"),
         tabs = document.querySelectorAll(".tabheader__item"),
@@ -1888,7 +1888,11 @@ window.addEventListener("DOMContentLoaded", () => {
             closeModal();
         }, 4000);
     }
-}); */
+
+    fetch("db.json")
+        .then((data) => data.json())
+        .then((res) => console.log(res));
+});
 
 // #54. JSON Chuqur clonlash
 /* 
@@ -2057,6 +2061,5 @@ request(3000).then(() => console.log("Request 3000 ms"));
 // const res = arr.reduce((sum, current) => `${sum}, ${current}`);
 // console.log(res);
 
-
 // #62. NPM
-else
+// #63. JSON-Server
