@@ -1781,34 +1781,37 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    new MenuCard(
-        "img/tabs/1.png",
-        "usual",
-        'Plan "Usual"',
-        "Lorem ipsum dolor sit amet consectetur adipisicin elit. Praesentium a delectus quae impedit voluptas architecto veritatis minima adipisci corrupti dolore, quisquam, cum odit. Accusamus officia, laboriosam iste est minus sit.",
-        10,
-        ".menu .container"
-    ).render();
+    axios.get("http://localhost:3000/menu").then((data) => {
+        data.data.forEach(({ img, altimg, title, descr, price }) => {
+            new MenuCard(
+                img,
+                altimg,
+                title,
+                descr,
+                price,
+                ".menu .container"
+            ).render();
+        });
+    });
 
-    new MenuCard(
-        "img/tabs/2.jpg",
-        "alite",
-        'Plan "Premium"',
-        "Lorem ipsum dolor sit amet consectetur adipisicin elit. Praesentium a delectus quae impedit voluptas architecto veritatis minima adipisci corrupti dolore, quisquam, cum odit. Accusamus officia, laboriosam iste est minus sit.",
-        15,
-        ".menu .container",
-        "menu__item"
-    ).render();
+    // async function getRecource(url) {
+    //     const res = await fetch(url);
 
-    new MenuCard(
-        "img/tabs/3.jpg",
-        "vip",
-        'Plan "VIP"',
-        "Lorem ipsum dolor sit amet consectetur adipisicin elit. Praesentium a delectus quae impedit voluptas architecto veritatis minima adipisci corrupti dolore, quisquam, cum odit. Accusamus officia, laboriosam iste est minus sit.",
-        20,
-        ".menu .container",
-        "menu__item"
-    ).render();
+    //     return await res.json();
+    // }
+
+    // getRecource("http://localhost:3000/menu").then((data) => {
+    //     data.forEach(({ img, altimg, title, descr, price }) => {
+    //         new MenuCard(
+    //             img,
+    //             altimg,
+    //             title,
+    //             descr,
+    //             price,
+    //             ".menu .container"
+    //         ).render();
+    //     });
+    // });
 
     // FORM
 
@@ -1832,6 +1835,11 @@ window.addEventListener("DOMContentLoaded", () => {
             },
             body: data,
         });
+
+        if (!res.ok) {
+            throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+        }
+
         return await res.json();
     }
 
@@ -1887,6 +1895,53 @@ window.addEventListener("DOMContentLoaded", () => {
             closeModal();
         }, 4000);
     }
+
+    //slider
+
+    const slides = document.querySelectorAll(".offer__slide"),
+        next = document.querySelector(".offer__slider-next"),
+        prev = document.querySelector(".offer__slider-prev"),
+        total = document.querySelector("#total"),
+        current = document.querySelector("#current");
+
+    let slideIndex = 1;
+
+    showSlides(slideIndex);
+
+    if (slides.length < 10) {
+        total.textContent = `0${slides.length}`;
+    } else {
+        total.textContent = slides.length;
+    }
+
+    function showSlides(index) {
+        if (index > slides.length) {
+            slideIndex = 1;
+        }
+        if (index < 1) {
+            slideIndex = slides.length;
+        }
+        slides.forEach((item) => (item.style.display = "none"));
+        slides[slideIndex - 1].style.display = "block";
+
+        if (slides.length < 10) {
+            current.textContent = `0${slideIndex}`;
+        } else {
+            current.textContent = slideIndex;
+        }
+    }
+
+    function plusSlides(index) {
+        showSlides((slideIndex += index));
+    }
+
+    next.addEventListener("click", () => {
+        plusSlides(1);
+    });
+
+    prev.addEventListener("click", () => {
+        plusSlides(-1);
+    });
 });
 
 // #54. JSON Chuqur clonlash
