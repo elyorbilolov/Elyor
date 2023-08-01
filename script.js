@@ -1589,7 +1589,7 @@ console.log(aboutcar);
  */
 
 // #50. Loyiha class
-
+/* 
 window.addEventListener("DOMContentLoaded", () => {
     const tabsParent = document.querySelector(".tabheader__items"),
         tabs = document.querySelectorAll(".tabheader__item"),
@@ -1898,7 +1898,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //slider
 
-    /*     const slides = document.querySelectorAll(".offer__slide"),
+    const slides = document.querySelectorAll(".offer__slide"),
         next = document.querySelector(".offer__slider-next"),
         prev = document.querySelector(".offer__slider-prev"),
         total = document.querySelector("#total"),
@@ -2014,7 +2014,6 @@ window.addEventListener("DOMContentLoaded", () => {
             dots[slideIndex - 1].style.opacity = 1;
         });
     });
- */
 
     // showSlides(slideIndex);
 
@@ -2052,9 +2051,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // prev.addEventListener("click", () => {
     //     plusSlides(-1);
     // });
-
-    const 
-});
+}); */
 
 // #54. JSON Chuqur clonlash
 /* 
@@ -2223,5 +2220,24 @@ request(3000).then(() => console.log("Request 3000 ms"));
 // const res = arr.reduce((sum, current) => `${sum}, ${current}`);
 // console.log(res);
 
-// #62. NPM
-// #63. JSON-Server
+// #70. Localstorage
+
+const email = document.querySelector(".email"),
+    firstName = document.querySelector(".name"),
+    formSubmit = document.querySelector("form"),
+    doc = document.querySelector(".doc");
+
+formSubmit.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const user = {
+        email: email.value,
+        name: firstName.value,
+    };
+    e.target.reset();
+
+    localStorage.setItem("user", JSON.stringify(user));
+});
+const user = JSON.parse(localStorage.getItem("user"));
+
+doc.textContent = `${user.name}`;
