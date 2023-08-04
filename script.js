@@ -1589,7 +1589,7 @@ console.log(aboutcar);
  */
 
 // #50. Loyiha class
-/* 
+
 window.addEventListener("DOMContentLoaded", () => {
     const tabsParent = document.querySelector(".tabheader__items"),
         tabs = document.querySelectorAll(".tabheader__item"),
@@ -1949,10 +1949,10 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     next.addEventListener("click", () => {
-        if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
+        if (offset == +width.replace(/\D/g, "") * (slides.length - 1)) {
             offset = 0;
         } else {
-            offset += +width.slice(0, width.length - 2);
+            offset += +width.replace(/\D/g, "");
         }
         slidesField.style.transform = `translateX(-${offset}px)`;
 
@@ -1974,9 +1974,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
     prev.addEventListener("click", () => {
         if (offset == 0) {
-            offset = +width.slice(0, width.length - 2) * (slides.length - 1);
+            offset = +width.replace(/\D/g, "") * (slides.length - 1);
         } else {
-            offset -= +width.slice(0, width.length - 2);
+            offset -= +width.replace(/\D/g, "");
         }
         slidesField.style.transform = `translateX(-${offset}px)`;
 
@@ -2001,7 +2001,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const slideTo = e.target.getAttribute("data-slide-to");
 
             slideIndex = slideTo;
-            offset = +width.slice(0, width.length - 2) * (slideTo - 1);
+            offset = +width.replace(/\D/g, "") * (slideTo - 1);
             slidesField.style.transform = `translateX(-${offset}px)`;
 
             if (slides.length < 10) {
@@ -2051,7 +2051,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // prev.addEventListener("click", () => {
     //     plusSlides(-1);
     // });
-}); */
+});
 
 // #54. JSON Chuqur clonlash
 /* 
@@ -2222,7 +2222,7 @@ request(3000).then(() => console.log("Request 3000 ms"));
 
 // #70. Localstorage
 
-const email = document.querySelector(".email"),
+/* const email = document.querySelector(".email"),
     firstName = document.querySelector(".name"),
     formSubmit = document.querySelector("form"),
     doc = document.querySelector(".doc");
@@ -2240,4 +2240,35 @@ formSubmit.addEventListener("submit", (e) => {
 });
 const user = JSON.parse(localStorage.getItem("user"));
 
-doc.textContent = `${user.name}`;
+doc.textContent = `${user.name}`; */
+
+// #71. Oddiy iboralar
+/* 
+//const firstName = prompt("What is your name", "");
+//const regex = /a/g;
+//i
+//g
+//console.log(firstName.search(regex));
+//console.log(firstName.match(regex));
+
+
+// const password = prompt("Your password");
+// console.log(password.replace(/\$/g, "*"));
+
+
+// const num = "12-34-56-78-90";
+// console.log(num.replace(/-/g, ":"));
+
+
+// const name = prompt("Name", "");
+// const regexp = /\s/gi;
+// console.log(name.match(regexp));
+// \d - number
+// \w - word
+// \s - space
+// \D - not a number
+// \W - not a word
+// \S - not a space
+ */
+
+// #72. Regex
