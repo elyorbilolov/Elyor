@@ -1590,7 +1590,7 @@ console.log(aboutcar);
 
 // #50. Loyiha class
 
-window.addEventListener("DOMContentLoaded", () => {
+/* window.addEventListener("DOMContentLoaded", () => {
     const tabsParent = document.querySelector(".tabheader__items"),
         tabs = document.querySelectorAll(".tabheader__item"),
         tabsContent = document.querySelectorAll(".tabcontent"),
@@ -1948,11 +1948,16 @@ window.addEventListener("DOMContentLoaded", () => {
         dots.push(dot);
     }
 
+    // function deleteNotDigits(str) {
+    //     return parseInt(str.replace(/\D/g, ""));
+    // }
+    // deleteNotDigits(width)
+
     next.addEventListener("click", () => {
-        if (offset == +width.replace(/\D/g, "") * (slides.length - 1)) {
+        if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
             offset = 0;
         } else {
-            offset += +width.replace(/\D/g, "");
+            offset += +width.slice(0, width.length - 2);
         }
         slidesField.style.transform = `translateX(-${offset}px)`;
 
@@ -1974,9 +1979,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
     prev.addEventListener("click", () => {
         if (offset == 0) {
-            offset = +width.replace(/\D/g, "") * (slides.length - 1);
+            offset = +width.slice(0, width.length - 2) * (slides.length - 1);
         } else {
-            offset -= +width.replace(/\D/g, "");
+            offset -= +width.slice(0, width.length - 2);
         }
         slidesField.style.transform = `translateX(-${offset}px)`;
 
@@ -2001,7 +2006,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const slideTo = e.target.getAttribute("data-slide-to");
 
             slideIndex = slideTo;
-            offset = +width.replace(/\D/g, "") * (slideTo - 1);
+            offset = +width.slice(0, width.length - 2) * (slideTo - 1);
             slidesField.style.transform = `translateX(-${offset}px)`;
 
             if (slides.length < 10) {
@@ -2051,7 +2056,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // prev.addEventListener("click", () => {
     //     plusSlides(-1);
     // });
-});
+}); */
 
 // #54. JSON Chuqur clonlash
 /* 
@@ -2188,7 +2193,7 @@ request(3000).then(() => console.log("Request 3000 ms"));
 
 //#61. Map Filter Reduce
 
-//#1
+/* //#1
 //Map method - yangi massiv qaytaradi eski massivni qiymatini o'zgartirib
 
 // const car = ["MErc", "BmW", "TesLa"];
@@ -2218,7 +2223,7 @@ request(3000).then(() => console.log("Request 3000 ms"));
 
 // const arr = ["bmw", "merc", "tayota", "tesla"];
 // const res = arr.reduce((sum, current) => `${sum}, ${current}`);
-// console.log(res);
+// console.log(res); */
 
 // #70. Localstorage
 
@@ -2271,4 +2276,51 @@ doc.textContent = `${user.name}`; */
 // \S - not a space
  */
 
-// #72. Regex
+// #73. Getters & Setters
+
+/* const car = {
+    name: "bmw",
+    color: "black",
+
+    get carName() {
+        return this.name;
+    },
+
+    set carName(name) {
+        this.name = name;
+    },
+};
+console.log(car.carName);
+console.log((car.carName = "merc")); */
+
+// #74. inkapsulatsiya constructor
+
+/* function Car(name, color, bonus) {
+    this.name = name;
+    this.color = color;
+    let extraBonus = bonus;
+
+    this.info = function () {
+        console.log(
+            `Name of car ${this.name}, color is ${this.color}. There is some bonus ${extraBonus}`
+        );
+    };
+    this.getBonus = function () {
+        return extraBonus;
+    };
+
+    this.setBonus = function (bonus) {
+        if (typeof bonus === "number" && bonus > 0 && bonus < 100) {
+            extraBonus = bonus;
+        } else {
+            console.log("Something went wrong");
+        }
+    };
+}
+
+const bmw = new Car("bmw", "black", 10);
+console.log(bmw.getBonus());
+bmw.setBonus(120);
+bmw.info(); */
+
+// #75. Inkapsulatsiya Class
