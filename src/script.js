@@ -2336,3 +2336,6 @@ const myModule = new module();
 
 myModule.sayBye();
 myModule.sayHello(); */
+
+
+//#78. Module ES6
