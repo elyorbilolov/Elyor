@@ -2293,29 +2293,32 @@ doc.textContent = `${user.name}`; */
 console.log(car.carName);
 console.log((car.carName = "merc")); */
 
-// #74. inkapsulatsiya constructor
+// #74. inkapsulatsiya constructor #75. Inkapsulatsiya Class
 
-/* function Car(name, color, bonus) {
-    this.name = name;
-    this.color = color;
-    let extraBonus = bonus;
+/* class Car {
+    constructor(name, color, bonus) {
+        this.name = name;
+        this.color = color;
+        this._extraBonus = bonus;
+    }
 
-    this.info = function () {
+    info() {
         console.log(
-            `Name of car ${this.name}, color is ${this.color}. There is some bonus ${extraBonus}`
+            `Name of car ${this.name}, color is ${this.color}. There is some bonus ${this.extraBonus}`
         );
-    };
-    this.getBonus = function () {
-        return extraBonus;
-    };
+    }
 
-    this.setBonus = function (bonus) {
+    getBonus() {
+        return this._extraBonus;
+    }
+
+    setBonus(bonus) {
         if (typeof bonus === "number" && bonus > 0 && bonus < 100) {
-            extraBonus = bonus;
+            this._extraBonus = bonus;
         } else {
             console.log("Something went wrong");
         }
-    };
+    }
 }
 
 const bmw = new Car("bmw", "black", 10);
@@ -2323,4 +2326,13 @@ console.log(bmw.getBonus());
 bmw.setBonus(120);
 bmw.info(); */
 
-// #75. Inkapsulatsiya Class
+//#76. Webpack
+/* 
+"use strict";
+
+const module = require("../../main");
+
+const myModule = new module();
+
+myModule.sayBye();
+myModule.sayHello(); */
