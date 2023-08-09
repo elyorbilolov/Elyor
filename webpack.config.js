@@ -1,11 +1,14 @@
+//#76. Webpack
+
+const path = require("path");
+
 module.exports = {
     mode: "development",
-    entry: "./src/js/script.js",
+    entry: "./src/script.js",
     output: {
-        path: __dirname + "/dist/js",
-        filename: "./dist/bundle.js",
+        path: path.resolve(__dirname, "dist/js"),
+        filename: "bundle.js",
     },
     watch: true,
     devtool: "source-map",
-    module: {},
 };
